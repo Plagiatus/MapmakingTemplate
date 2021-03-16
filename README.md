@@ -49,7 +49,7 @@ Sometimes we have the luxury to be able to work on a shared server at the same t
 
 **❗ This server part only needs to be set up once by someone in the team, while the singleplayer/local part should be done by every collaborator! ❗**
 
-1. Create a new FTP file access account for your server or use your own. This example is set up for standard Port 21 and authentication via password. If you have SSH authentication, please see the [FTP Deploy](https://github.com/marketplace/actions/ftp-deploy) Documentation for what you need to change in the [main.yml](./.github/workflows/main.yml) file.
+1. Create a new FTP file access account for your server or use your own. This example is set up for standard Port 21 and authentication via password. If you have SSH authentication, please see the [FTP Deploy](https://github.com/marketplace/actions/ftp-deploy) Documentation for what you need to change in the [main.yml](./.github/workflows/main.yml) file. **If you want to use sftp, you'll need to downgrade FTPDeploy to version 3 and change the yml file substantially, as sftp support was removed in v4! (ftps is not sftp!)**
 
 2. Enable RCON on the server. I recommend setting up a password for it, too. Make sure the RCON port is accessible from the internet! (You can try [mcrcon](https://github.com/Tiiffi/mcrcon/releases) to test that.) 
 
@@ -66,7 +66,9 @@ Sometimes we have the luxury to be able to work on a shared server at the same t
 
 _rcon and ftp server might be identical_
 
-4. You are now ready to deploy. The actions will now sync the files on the main branch to the ftp server after every push, inform you about the new push and run `/reload` ingame to load the new files. If you want to change that, you can modify the [main.yml](./.github/workflows/main.yml) file. Please see the [RCON Action](https://github.com/Plagiatus/RCON-Action/) repository for futher information and documentation on how to use the options from the RCON action.
+4. If your ftp's root access doesn't point directly to the world dir, add the `server-dir` input to the `with` list in the `Sync Files` step, pointing to the folder you want the files to be copied to.
+
+5. You are now ready to deploy. The actions will now sync the files on the main branch to the ftp server after every push, inform you about the new push and run `/reload` ingame to load the new files. If you want to change that, you can modify the [main.yml](./.github/workflows/main.yml) file. Please see the [RCON Action](https://github.com/Plagiatus/RCON-Action/) repository for futher information and documentation on how to use the options from the RCON action.
 
 
 ## Contributions / Issues / Suggestions
