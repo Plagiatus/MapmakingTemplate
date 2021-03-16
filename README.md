@@ -73,7 +73,7 @@ _rcon and ftp server might be identical_
 
 
 ## Contributions / Issues / Suggestions
-If you have any questions, ran into issues or have suggestions, please post an [issue](/issues).
+If you have any questions, ran into issues or have suggestions, please post an [issue](https://github.com/Plagiatus/MapmakingTemplate/issues).
 
 Contributions/PRs welcome.
 
