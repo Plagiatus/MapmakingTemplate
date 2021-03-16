@@ -2,6 +2,7 @@
 
 A mapmaking template with (optionally) integrated ftp and RCON GitHub Actions.
 
+![](https://media.discordapp.net/attachments/256539745583104001/821182549220261918/unknown.png)
 
 ## How to set up
 
