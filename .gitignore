@@ -1,0 +1,10 @@
+# ignore everything...
+/*
+# ...except these folders/files
+!/datapacks/
+!/resourcepack/
+!/resourcepack.zip
+!/project_assets/
+!.gitignore
+!/world_files/
+!/.github/workflows
