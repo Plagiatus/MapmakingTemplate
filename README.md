@@ -71,6 +71,19 @@ _rcon and ftp server might be identical_
 
 5. You are now ready to deploy. The actions will now sync the files on the main branch to the ftp server after every push, inform you about the new push and run `/reload` ingame to load the new files. If you want to change that, you can modify the [main.yml](./.github/workflows/main.yml) file. Please see the [RCON Action](https://github.com/Plagiatus/RCON-Action/) repository for futher information and documentation on how to use the options from the RCON action.
 
+## The issue with world files
+
+If you're developing in singleplayer and want to share a world to develop in, you will quickly notice that you'll have an issue: The world isn't tracked by this set up.  
+That is because the world is stored in binary files which are very hard to properly track with git. Then to be able to properly pull the changes you'd have to make sure you're leaving the world every time to be sure, which definitely disrupts the workflow.  
+
+### Suggested Solution
+
+I recommend cumulating the world changes in manual commits. That's what the `world_files` folder in this template is in here for:  
+Take all the files and folders in the world, that **are not part of this template** and put them into a zip file. Then put the zip file into the `world_files` folder. Name it in a way where you know what is the latest version (e.g. [semver](https://semver.org/) or just an increasing number) and add this folder to your commit. I suggest marking the commit in a way that clearly communicates at a glance that a world change has occured.  
+
+Then to apply the world changes to your singleplayer world, make sure to leave the world, then copy the newest world folder to the singleplayer world folder and unzip it there. **⚠️ This will overwrite your local changes!**
+
+**Be aware that this method means that for world changes you need to coordinate with the other contributors, as merging world changes is basically impossible.**
 
 ## Contributions / Issues / Suggestions
 If you have any questions, ran into issues or have suggestions, please post an [issue](https://github.com/Plagiatus/MapmakingTemplate/issues).
