@@ -1,7 +1,7 @@
 name: Upload to FTP
 on:
   push:
-    branches: [ change_ftp_action ]
+    branches: [ main ]
 jobs:
   upload:
     name: Upload 🔼
