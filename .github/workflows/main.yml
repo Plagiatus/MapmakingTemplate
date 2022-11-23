@@ -1,7 +1,7 @@
 name: Upload to FTP
 on:
   push:
-    branches: [ main ]
+    branches: [ change_ftp_action ]
 jobs:
   upload:
     name: Upload 🔼
@@ -10,11 +10,13 @@ jobs:
       - name: Get latest code 👀
         uses: actions/checkout@v2
       - name: Sync files 📁
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-          server:  ${{ secrets.ftp_server }}
-          username:  ${{ secrets.ftp_username }}
+          host:  ${{ secrets.ftp_server }}
+          user:  ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
+          remoteDir: "world"
+          options: "--delete --only-newer"
       - name: RCON Connection 🔌
         uses: Plagiatus/RCON-Action@v0.2
         with:
