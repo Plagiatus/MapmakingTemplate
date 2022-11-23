@@ -16,7 +16,7 @@ jobs:
           user:  ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           remoteDir: "world"
-          options: "--delete --only-newer"
+          options: "--only-newer"
       - name: RCON Connection 🔌
         uses: Plagiatus/RCON-Action@v0.2
         with:

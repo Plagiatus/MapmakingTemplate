@@ -69,8 +69,9 @@ _rcon and ftp server might be identical_
 
 4. If your ftp's root access does point directly to the world directory, remove the `remoteDir` input from the `with` list in the `Sync Files` step. If not, make sure it's pointing to the (world) folder you want the files to be copied to.
 
-5. You can adjust the `options` input from the same `with` list as in #4. It uses the linux `mirror` command, so you can give the same options as [that command](https://www.cyberciti.biz/faq/lftp-mirror-example/). The default is set up to `--delete` files that have been deleted in the repository and to copy `--only-newer` files so it doesn't copy the entire folder every time.   
-**Do not modify if you don't know what you're doing!**
+5. You can adjust the `options` input from the same `with` list as in #4. It uses the linux `mirror` command, so you can give the same options as [that command](https://www.cyberciti.biz/faq/lftp-mirror-example/). The default is set up to copy `--only-newer` files so it doesn't copy the entire folder every time, only what changed.   
+**Do not modify if you don't know what you're doing!**  
+_For example, using `--delete` sounds good at first, until you realize that it will delete your world folder when you use it._
 
 6. You are now ready to deploy. The actions will now sync the files on the main branch to the ftp server after every push, inform you about the new push and run `/reload` ingame to load the new files. If you want to change that, you can modify the [main.yml](./.github/workflows/main.yml) file. Please see the [RCON Action](https://github.com/Plagiatus/RCON-Action/) repository for futher information and documentation on how to use the options from the RCON action.
 
