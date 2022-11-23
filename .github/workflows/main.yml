@@ -16,7 +16,7 @@ jobs:
           username:  ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
       - name: RCON Connection 🔌
-        uses: Plagiatus/RCON-Action@v0.1
+        uses: Plagiatus/RCON-Action@v0.2
         with:
           server: ${{ secrets.rcon_server }}
           port: ${{ secrets.rcon_port }}
